@@ -1,0 +1,11 @@
+@startuml
+
+interface IRepository{
+}
+class Repository
+class Board_DDD
+class Board_DB
+IRepository <|-down- Repository
+IRepository -> Board_DDD
+Repository -> Board_DB
+@enduml

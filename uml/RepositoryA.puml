@@ -1,0 +1,24 @@
+@startuml
+
+interface IRepository{
+}
+class Factory
+class Repository
+class PhysicalBoard_DDD
+class PersistentPhysicalBoard{
+override put( BattleUnit )
+override move( BattleUnit, Position)
+override remove( BattleUnit )
+override find() : BattleUnit
+override at() : Position
+}
+Factory -> IRepository
+Factory "create"--> PersistentPhysicalBoard
+IRepository -> PhysicalBoard_DDD
+PhysicalBoard_DDD <|-down- PersistentPhysicalBoard
+IRepository <|-- Repository
+Repository --> PhysicalBoard_DB
+PersistentPhysicalBoard -> PhysicalBoard_DB
+PersistentPhysicalBoard -> Repository
+
+@enduml

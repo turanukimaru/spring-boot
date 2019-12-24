@@ -1,0 +1,10 @@
+@startuml
+UseCase -> Factory
+Factory -> Repository
+create Board_DB
+Repository -> Board_DB : new
+Repository --> Factory : return
+create Board_DDD
+Factory -> Board_DDD : new
+Factory --> UseCase : return
+@enduml

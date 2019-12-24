@@ -1,0 +1,14 @@
+@startuml
+UseCase -> Factory
+Factory -> Repository
+create Board_DB
+Repository -> Board_DB : new
+Repository --> Factory : return
+create PersistentBoard
+Factory -> PersistentBoard : new
+Factory --> UseCase : return
+UseCase -> PersistentBoard : put(BattleUnit)
+PersistentBoard -> Board_DB : 関連にBattleUnitを追加
+UseCase -> PersistentBoard : move(BattleUnit)
+PersistentBoard -> Board_DB : BattleUnitの関連を取り出し、x,y 更新
+@enduml

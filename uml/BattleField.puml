@@ -1,0 +1,19 @@
+@startuml
+
+class Board
+class PhysicalBoard{
+Width:Int
+height:Int
+}
+class Positioning{
+x:Int
+y:Int
+}
+class BattleUnit{
+status
+}
+Board -> PhysicalBoard
+PhysicalBoard o- Positioning
+Positioning -> BattleUnit
+
+@enduml
